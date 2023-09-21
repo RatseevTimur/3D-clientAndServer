@@ -1,0 +1,187 @@
+// Variables ==========================
+$primary: #907dda
+$accent: #5c5c5c7c
+$font-light: #e7e6f1
+$font-dark: #606060
+// Base ===============================
+
+.nav
+	position: absolute
+	transform: skewY(-7deg)
+	z-index: 10001
+
+	> .submenu
+		// background-color: hsl(0, 0%, 50%)
+		background-color: $accent
+		backdrop-filter: blur(5px)
+		color: whitesmoke
+		list-style: none
+		padding: .5em
+		width: 6em
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		transition: .5s
+		cursor: pointer
+		margin-block: .8em
+
+		//position: relative
+		//flex:
+			//grow: 4
+			//shrink: 0
+		//height: 60px
+		//font:
+			//size: 14px
+		//text:
+			//align: center
+			//transform: uppercase
+		line-height: 20px
+		//letter-spacing: 1px
+		//color: $font-light
+	
+		// CSS States ===============================
+		&:hover
+			// background: rgba(0,0,0,0.1)
+	
+			.dropdown
+				visibility: visible
+				transform: translate(0,0)
+				opacity: 1
+				z-index: 0
+		
+				> li
+					animation: 
+						name: slideInLeft
+						duration: 0.7s
+						timing-function: ease-in-out
+						fill-mode: backwards
+			
+		// nth-child ==============================
+		&:first-child
+			border-top-left-radius: 6px
+	
+		&:last-child
+			border-top-right-radius: 6px				
+	
+.dropdown
+	visibility: hidden
+	display: flex
+	position: absolute
+	top: 100%
+	left: 0
+	right: 0
+	flex-direction: column
+	margin: 0
+	padding: 5px 0 10px
+	list-style: none
+	color: $font-dark
+	background: $accent
+	border-bottom-left-radius: 6px
+	border-bottom-right-radius: 6px
+	box-shadow: 1px 2px 5px -1px rgba(0,0,0,0.15),0px 4px 14px -1px rgba(0,0,0,0.10)
+	transform: translate(60px,0px)
+	transition: transform 1s ease-out, opacity 0.2s, z-index 0s 0.2s
+	opacity: 0
+	z-index: -1
+	backdrop-filter: blur(2px)
+
+	> li
+		cursor: pointer
+		margin-top: 10px
+	
+		// CSS State ===========================
+		&:hover
+			background: rgba(0,0,0,0.06)
+	
+@keyframes slideInLeft
+	from
+		transform: translate(-85%,0)
+		opacity: 0
+	
+	to
+		transform: translate(0,0)
+		opacity: 1
+
+
+// @media only screen and (min-width: 900px) 
+// 	li
+// 		background-color: hsl(0, 0%, 50%)
+// 		color: whitesmoke
+// 		list-style: none
+// 		padding: 1em
+// 		width: 4em
+// 		position: relative
+// 		display: flex
+// 		align-items: center
+// 		justify-content: center
+// 		transition: .5s
+// 		cursor: pointer
+// 		margin-block: .8em
+
+
+
+
+// 		//position: relative
+// 		//flex:
+// 			//grow: 4
+// 			//shrink: 0
+// 		//height: 60px
+// 		//font:
+// 			//size: 14px
+// 		//text:
+// 			//align: center
+// 			//transform: uppercase
+// 		line-height: 10px
+// 		//letter-spacing: 1px
+// 		//color: $font-light
+	
+// 		// CSS States ===============================
+// 		&:hover
+// 			// background: rgba(0,0,0,0.1)
+	
+// 			ul.dropdown
+// 				visibility: visible
+// 				transform: translate(0,0)
+// 				opacity: 1
+// 				z-index: 0
+		
+// 				> li
+// 					animation: 
+// 						name: slideInLeft
+// 						duration: 0.3s
+// 						timing-function: ease-in-out
+// 						fill-mode: backwards
+			
+// 		// nth-child ==============================
+// 		&:first-child
+// 			border-top-left-radius: 6px
+	
+// 		&:last-child
+// 			border-top-right-radius: 6px				
+	
+// ul.dropdown
+// 	left: 0
+// 	right: 0
+// 	flex-direction: column
+// 	margin: 0
+// 	padding: 5px 0 30px
+// 	list-style: none
+// 	color: $font-dark
+// 	// background: $accent
+// 	border-bottom-left-radius: 6px
+// 	border-bottom-right-radius: 6px
+// 	// box-shadow: 1px 2px 5px -1px rgba(0,0,0,0.15),0px 4px 14px -1px rgba(0,0,0,0.10)
+// 	transform: translate(0,-60px)
+// 	transition: transform 1s ease-out, opacity 0.2s, z-index 0s 0.2s
+// 	opacity: 0
+// 	z-index: -1
+
+// 	> li
+// 		font:
+// 			size: 18px
+// 		cursor: pointer
+	
+// 		// CSS State ===========================
+// 		&:hover
+// 			// background: rgba(0,0,0,0.06)
